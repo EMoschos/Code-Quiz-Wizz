@@ -3,3 +3,19 @@
 .list-group-item {
     margin-top: 10px;
 }
+
+#startQuiz {
+    text-align: center;
+}
+
+#startMain {
+    display: block;
+}
+
+#quest1 {
+    display: none;
+}
+
+#quest2 {
+    display: none;
+}

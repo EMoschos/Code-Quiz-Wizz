@@ -18,14 +18,30 @@
             <a class="navbar-brand" href="#"> HIGH SCORES
             </a>
             <div class="navbar-nav ml-md-auto">
-                <h1 id="time">TIME</h1>
+                <h1>TIME: <span id="time"></span></h1>
             </div>
         </nav>
     </header>
     <main>
-        <div class="container-sm">
-            <!-- Utilised bootstrap grid system to layout content -->
-            <div class="row justify-content-center">
+        <!-- MAIN LANDING container - visible -->
+        <div id="startMain"class="container-sm">
+            <div  class="row justify-content-center">
+                <div class="col-sm-6">
+                    <p>
+                        <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus exercitationem iure
+                            temporibus error pariatur nulla ducimus cupiditate sint officia, repellat necessitatibus
+                            earum molestias, odio quos?</strong>.
+                    </p>
+                    <button id="startQuiz" type="button"
+                        class="list-group-item list-group-item-action list-group-item-dark">
+                        START QUIZ
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- QUESTION #1 Container - Hidden -->
+        <div id="quest1" class="container-sm">
+            <div  class="row justify-content-center">
                 <div class="col-sm-6">
                     <h1>
                         QUESTION NUMBER 1
@@ -35,7 +51,50 @@
             <div class="row justify-content-center">
                 <div class="col-sm-6">
                     <p>
-                        <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus exercitationem iure temporibus error pariatur nulla ducimus cupiditate sint officia, repellat necessitatibus earum molestias, odio quos?</strong>.
+                        <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus exercitationem
+                            iure
+                            temporibus error pariatur nulla ducimus cupiditate sint officia, repellat necessitatibus
+                            earum molestias, odio quos?</strong>.
+                    </p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-6 list-group">
+                    <button id="quest2btn" type="button" class="list-group-item list-group-item-action list-group-item-dark">
+                        Cras justo odio
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Dapibus ac
+                        facilisis
+                        in</button>
+                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Morbi
+                        leo
+                        risus</button>
+                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Porta
+                        ac
+                        consectetur
+                        ac</button>
+                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Vestibulum
+                        at
+                        eros</button>
+
+                </div>
+            </div>
+        </div>
+        <!-- QUESTION #2 Container - Hidden -->
+        <div id="quest2" class="container-sm">
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <h1>
+                        QUESTION NUMBER 2
+                    </h1>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-6">
+                    <p>
+                        <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus exercitationem iure
+                            temporibus error pariatur nulla ducimus cupiditate sint officia, repellat necessitatibus
+                            earum molestias, odio quos?</strong>.
                     </p>
                 </div>
             </div>
@@ -44,12 +103,16 @@
                     <button type="button" class="list-group-item list-group-item-action list-group-item-dark">
                         Cras justo odio
                     </button>
-                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Dapibus ac facilisis
+                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Dapibus ac
+                        facilisis
                         in</button>
-                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Morbi leo risus</button>
-                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Porta ac consectetur
+                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Morbi leo
+                        risus</button>
+                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Porta ac
+                        consectetur
                         ac</button>
-                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Vestibulum at
+                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Vestibulum
+                        at
                         eros</button>
 
                 </div>
