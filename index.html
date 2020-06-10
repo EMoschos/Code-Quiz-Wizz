@@ -24,13 +24,13 @@
     </header>
     <main>
         <!-- MAIN LANDING container - visible -->
-        <div id="startMain"class="container-sm">
-            <div  class="row justify-content-center">
+        <div id="startMain" class="container-sm">
+            <div class="row justify-content-center">
                 <div class="col-sm-6">
                     <p>
-                        <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus exercitationem iure
-                            temporibus error pariatur nulla ducimus cupiditate sint officia, repellat necessitatibus
-                            earum molestias, odio quos?</strong>.
+                        <strong>Welcome to the JavaScript Trivia page. Take the quiz to test your knowledge of
+                            JavaScript and log your score. This is a timed quiz so don't get stage fright otherwise your
+                            time will run out!!!</strong>.
                     </p>
                     <button id="startQuiz" type="button"
                         class="list-group-item list-group-item-action list-group-item-dark">
@@ -41,83 +41,60 @@
         </div>
         <!-- QUESTION #1 Container - Hidden -->
         <div id="quest1" class="container-sm">
-            <div  class="row justify-content-center">
-                <div class="col-sm-6">
-                    <h1>
-                        QUESTION NUMBER 1
-                    </h1>
-                </div>
-            </div>
             <div class="row justify-content-center">
                 <div class="col-sm-6">
-                    <p>
-                        <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus exercitationem
-                            iure
-                            temporibus error pariatur nulla ducimus cupiditate sint officia, repellat necessitatibus
-                            earum molestias, odio quos?</strong>.
-                    </p>
+                    <h2 id="qPlace">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus exercitationem
+                        iure
+                        temporibus error pariatur nulla ducimus cupiditate sint officia, repellat necessitatibus
+                        earum molestias, odio quos?
+                    </h2>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div class="col-sm-6 list-group">
-                    <button id="quest2btn" type="button" class="list-group-item list-group-item-action list-group-item-dark">
+                    <button id="ansOne" type="button"
+                        class="list-group-item list-group-item-action list-group-item-dark">
                         Cras justo odio
                     </button>
-                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Dapibus ac
+                    <button id="anstwo" type="button"
+                        class="list-group-item list-group-item-action list-group-item-dark">Dapibus ac
                         facilisis
                         in</button>
-                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Morbi
+                    <button id="ansThree" type="button"
+                        class="list-group-item list-group-item-action list-group-item-dark">Morbi
                         leo
                         risus</button>
-                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Porta
+                    <button id="ansFour" type="button"
+                        class="list-group-item list-group-item-action list-group-item-dark">Porta
                         ac
                         consectetur
                         ac</button>
-                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Vestibulum
-                        at
-                        eros</button>
+                    <p id="textAnswer" class="list-group-item list-group-item-action list-group-item-dark">Last Answer is...</p>
 
                 </div>
             </div>
         </div>
-        <!-- QUESTION #2 Container - Hidden -->
-        <div id="quest2" class="container-sm">
-            <div class="row justify-content-center">
-                <div class="col-sm-6">
-                    <h1>
-                        QUESTION NUMBER 2
-                    </h1>
+        <div id="scoreForm" class="container-sm">
+            <form>
+                <div class="form-row justify-content-center">
+                  <div class="col-auto my-1">
+                    <label class="sr-only" for="inlineFormInputName">Initials</label>
+                    <input type="text" class="form-control" id="inlineFormInputName" placeholder="Initials i.e. TM">
+                  </div>
+                  <div class="col-auto my-1">
+                    <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text">SCORE: <span id="score"></span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto my-1">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                  </div>
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-sm-6">
-                    <p>
-                        <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus exercitationem iure
-                            temporibus error pariatur nulla ducimus cupiditate sint officia, repellat necessitatibus
-                            earum molestias, odio quos?</strong>.
-                    </p>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-sm-6 list-group">
-                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">
-                        Cras justo odio
-                    </button>
-                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Dapibus ac
-                        facilisis
-                        in</button>
-                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Morbi leo
-                        risus</button>
-                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Porta ac
-                        consectetur
-                        ac</button>
-                    <button type="button" class="list-group-item list-group-item-action list-group-item-dark">Vestibulum
-                        at
-                        eros</button>
-
-                </div>
-            </div>
-        </div>
+              </form>
     </main>
     <script src="./script.js"></script>
 </body>

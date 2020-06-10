@@ -16,6 +16,10 @@
     display: none;
 }
 
-#quest2 {
+#scoreForm {
     display: none;
+}
+
+#textAnswer {
+    background-color: white;
 }
