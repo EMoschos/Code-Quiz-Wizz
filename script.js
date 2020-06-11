@@ -139,7 +139,7 @@ function logScore() {
       alert("You need to enter your initals")
       return;
     }
-    else if (score < 1) {
+    else if (timer < 1) {
         alert("Your score is ZERO and can't be logged... Try harder!!!")
         return;
     } 
