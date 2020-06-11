@@ -9,7 +9,7 @@
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- CSS external style sheet located in assets/css directory -->
     <link rel="stylesheet" href="./style.css">
-    <title>POP Quiz</title>
+    <title>JS Quiz</title>
 </head>
 
 <body>
@@ -70,7 +70,8 @@
                         ac
                         consectetur
                         ac</button>
-                    <p id="textAnswer" class="list-group-item list-group-item-action list-group-item-dark">Last Answer is...</p>
+                    <p id="textAnswer" class="list-group-item list-group-item-action list-group-item-dark">Last Answer
+                        is...</p>
 
                 </div>
             </div>
@@ -78,23 +79,28 @@
         <div id="scoreForm" class="container-sm">
             <form>
                 <div class="form-row justify-content-center">
-                  <div class="col-auto my-1">
-                    <label class="sr-only" for="inlineFormInputName">Initials</label>
-                    <input type="text" class="form-control" id="inlineFormInputName" placeholder="Initials i.e. TM">
-                  </div>
-                  <div class="col-auto my-1">
-                    <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">SCORE: <span id="score"></span></div>
-                      </div>
+                    <div class="col-auto my-1">
+                        <!-- <label class="sr-only" for="inlineFormInputName">Initials</label> -->
+                        <input type="text" class="form-control" id="inlineFormInputName" placeholder="Initials i.e. TM">
                     </div>
-                  </div>
-                  <div class="col-auto my-1">
-                    <button type="submit" class="btn btn-dark">Submit</button>
-                  </div>
+                    <div class="col-auto my-1">
+                        <!-- <label class="sr-only" for="inlineFormInputGroupUsername">Username</label> -->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">SCORE: <span id="score"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto my-1">
+                        <button id="saveScore" type="submit" class="btn btn-dark">Save</button>
+                    </div>
                 </div>
-              </form>
+                <div class="row justify-content-center">
+                    <div class="col-sm-6 list-group">
+                        <ul id="listScore"></ul>
+                    </div>
+                </div>
+            </form>
     </main>
     <script src="./script.js"></script>
 </body>
