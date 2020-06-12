@@ -48,6 +48,7 @@ var quizSet = [{
 
 var i = 0;
 
+//This function sets the questions
 function setQuestArray(i) {
     qPlace.textContent = quizSet[i].Quest;
     ansOne.textContent = quizSet[i].ansSet[0];
@@ -56,6 +57,7 @@ function setQuestArray(i) {
     ansFour.textContent = quizSet[i].ansSet[3];
 };
 
+//This starts the timer and shows the first question set
 function startTimer() {
     questOne();
     setQuestArray(i);
@@ -72,6 +74,7 @@ function startTimer() {
     }, 1000)
 };
 
+//This changes the question when an answer is selected in the quiz section
 function responseClick(event) {
     if (event.target.matches("button")) {
         event.preventDefault();
@@ -89,6 +92,7 @@ function responseClick(event) {
     }
 }
 
+//This function was created to check the answers and also to deduct time from the clock for an incorrect answer
 function checkAnswer() {
     if ((i === 0 && event.target === ansTwo) || (i === 1 && event.target === ansThree) || (i === 2 && event.target === ansFour) || (i === 3 && event.target === ansOne)) {
         textAnswer.textContent = "Last Answer was CORRECT!!!";
@@ -102,6 +106,7 @@ function checkAnswer() {
     }
 }
 
+//Next two functions show and hide containers through the quiz
 function questOne() {
     question1.style.display = "block";
     startMain.style.display = "none";
@@ -115,6 +120,7 @@ function showForm() {
     renderScores();
 }
 
+//Logs the score/user details to the local storage only after certain conditions are met
 function logScore() {
     event.preventDefault();
     var user = {
@@ -145,6 +151,7 @@ function logScore() {
     }
 }
 
+//Function used to display scores when even going to the highscores page
 function renderScores() {
     var lastUser = JSON.parse(localStorage.getItem("user"));
 
@@ -164,7 +171,7 @@ function renderScores() {
     btn.addEventListener("click", removeScore);
     listScore.appendChild(btn)
 }
-
+//Used to remove the score from the list and data on local storage
 function removeScore() {
     localStorage.removeItem("user");
     var removeBtn = document.querySelector("#removeBtn")
