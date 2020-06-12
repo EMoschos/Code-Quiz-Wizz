@@ -9,7 +9,9 @@ var score = document.querySelector("#score");
 var textAnswer = document.querySelector("#textAnswer");
 var saveScore = document.querySelector("#saveScore");
 var listScore = document.querySelector("#listScore");
-var inputName = document.querySelector("inlineFormInputName")
+var inputName = document.querySelector("#inlineFormInputName");
+var hsBtn = document.querySelector("#hsBtn");
+
 
 // Div Elements that Quiz details will show the content
 var qPlace = document.querySelector("#qPlace");
@@ -43,8 +45,6 @@ var quizSet = [{
     ansSet: ["Variable", "Various", "Nothing", "Varcon"],
     correctAns: "Variable"
 }];
-
-var highScores = "";
 
 var i = 0;
 
@@ -82,7 +82,7 @@ function responseClick(event) {
         }
         else {
             clearInterval(interval);
-            setTimeout(function () { showForm(); }, 2000);
+            setTimeout(function () { showForm(); }, 1000);
             score.textContent = (" " + timer);
             timerDisplay.textContent = timer;
         }
@@ -94,22 +94,11 @@ function checkAnswer() {
         textAnswer.textContent = "Last Answer was CORRECT!!!";
         textAnswer.style.backgroundColor = "Green";
     }
-    // else if (i === 1 && event.target === ansThree) {
-    //     textAnswer.textContent = "Last Answer was CORRECT!!!";
-    //     textAnswer.style.backgroundColor = "Green";
-    // }
-    // else if (i === 2 && event.target === ansFour) {
-    //     textAnswer.textContent = "Last Answer was CORRECT!!!";
-    //     textAnswer.style.backgroundColor = "Green";
-    // }
-    // else if (i === 3 && event.target === ansOne) {
-    //     textAnswer.textContent = "Last Answer was CORRECT!!!";
-    //     textAnswer.style.backgroundColor = "Green";
-    // }
+
     else {
-        textAnswer.textContent = "Oh no last answer was WRONG!!! (-10 seconds)";
+        textAnswer.textContent = "Oh no last answer was WRONG!!! (-15 seconds)";
         textAnswer.style.backgroundColor = "red";
-        timer = timer - 10;
+        timer = timer - 15;
     }
 }
 
@@ -120,48 +109,66 @@ function questOne() {
 
 function showForm() {
     question1.style.display = "none";
+    startMain.style.display = "none";
     scoreForm.style.display = "block";
     clearInterval(interval);
+    renderScores();
 }
 
 function logScore() {
     event.preventDefault();
-    var x = document.getElementById("inlineFormInputName").value;
-    var scoresText = x + " Your Score is: " + timer;
-    console.log(scoresText)
+    var user = {
+        userInitials: inputName.value,
+        userScore: timer
+    };
 
-    //var x = highScores;
-    
-
-
-    // Return from function early if submitted todoText is blank
-    if (x === "") {
-      alert("You need to enter your initals")
-      return;
+    if (user.userInitials === "") {
+        alert("You need to enter your initals")
+        return;
     }
-    else if (timer < 1) {
+    if ((user.userScore < 1) || (user.userScore === 60)) {
         alert("Your score is ZERO and can't be logged... Try harder!!!")
         return;
-    } 
-    var li = document.createElement("li");
-    li.setAttribute("class", "list-group-item list-group-item-action list-group-item-dark");
-    li.textContent = scoresText;
-    listScore.appendChild(li);
-    //highScores.push(scoresText);
-    //renderScores()
-    //inputName.value = "";
+    }
+    if ((i < 4)) {
+        alert("You did not finish the quiz... Try harder quiter!!!")
+        return;
+    }
+    else {
+        localStorage.setItem("user", JSON.stringify(user));
+        renderScores();
+    }
+    inputName.value = "";
+    timer = 60;
+    timerDisplay.textContent = timer;
 }
 
-// function renderScores(){
-//     for (var s = 0; s < highScores.length; s++) {
-//         var x = highScores;
-    
-//         var li = document.createElement("li");
-//         li.textContent = x;
-//         listScore.appendChild(li);
-//       }
-// }
+function renderScores() {
+    var lastUser = JSON.parse(localStorage.getItem("user"));
+
+    var li = document.createElement("li");
+    li.setAttribute("class", "list-group-item list-group-item-action list-group-item-dark");
+    li.setAttribute("id", "userList")
+    li.textContent = lastUser.userInitials + " your last score was: " + lastUser.userScore;
+    listScore.appendChild(li);
+
+    var btn = document.createElement("button")
+    btn.setAttribute("class", "btn btn-dark")
+    btn.setAttribute("id", "removeBtn")
+    btn.textContent = "Remove Score"
+    btn.addEventListener("click", removeScore);
+    listScore.appendChild(btn)
+}
+
+function removeScore() {
+    localStorage.removeItem("user");
+    var removeBtn = document.querySelector("#removeBtn")
+    var userList = document.querySelector("#userList")
+    removeBtn.parentNode.removeChild(removeBtn)
+    userList.parentNode.removeChild(userList)
+}
 
 startButton.addEventListener("click", startTimer);
 question1.addEventListener("click", responseClick);
-saveScore.addEventListener("click", logScore)
+saveScore.addEventListener("click", logScore);
+hsBtn.addEventListener("click", showForm);
