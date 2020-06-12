@@ -127,7 +127,8 @@ function logScore() {
         return;
     }
     if ((user.userScore < 1) || (user.userScore === 60)) {
-        alert("Your score is ZERO and can't be logged... Try harder!!!")
+        alert("Your score is ZERO and can't be logged... C'MON!!!")
+        inputName.value = "";
         return;
     }
     if ((i < 4)) {
@@ -136,16 +137,23 @@ function logScore() {
     }
     else {
         localStorage.setItem("user", JSON.stringify(user));
-        renderScores();
+        inputName.value = "";
+        timer = 60;
+        timerDisplay.textContent = timer;
+        score.textContent = 0
+        showForm();
     }
-    inputName.value = "";
-    timer = 60;
-    timerDisplay.textContent = timer;
+    // inputName.value = "";
+    // timer = 60;
+    // timerDisplay.textContent = timer;
 }
 
 function renderScores() {
     var lastUser = JSON.parse(localStorage.getItem("user"));
 
+    if (!lastUser){
+        return;
+    }
     var li = document.createElement("li");
     li.setAttribute("class", "list-group-item list-group-item-action list-group-item-dark");
     li.setAttribute("id", "userList")
