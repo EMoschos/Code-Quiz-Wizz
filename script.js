@@ -141,11 +141,8 @@ function logScore() {
         timer = 60;
         timerDisplay.textContent = timer;
         score.textContent = 0
-        showForm();
+        renderScores();
     }
-    // inputName.value = "";
-    // timer = 60;
-    // timerDisplay.textContent = timer;
 }
 
 function renderScores() {
