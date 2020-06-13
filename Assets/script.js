@@ -11,6 +11,7 @@ var saveScore = document.querySelector("#saveScore");
 var listScore = document.querySelector("#listScore");
 var inputName = document.querySelector("#inlineFormInputName");
 var hsBtn = document.querySelector("#hsBtn");
+var resetBtn = document.querySelector("#reset");
 
 
 // Div Elements that Quiz details will show the content
@@ -20,7 +21,8 @@ var ansTwo = document.querySelector("#anstwo");
 var ansThree = document.querySelector("#ansThree");
 var ansFour = document.querySelector("#ansFour");
 
-
+var i = 0;
+var liMax = 0;
 var timer = 60;
 var interval;
 timerDisplay.textContent = timer;
@@ -45,8 +47,6 @@ var quizSet = [{
     ansSet: ["Variable", "Various", "Nothing", "Varcon"],
     correctAns: "Variable"
 }];
-
-var i = 0;
 
 //This function sets the questions
 function setQuestArray(i) {
@@ -106,7 +106,7 @@ function checkAnswer() {
     }
 }
 
-//Next two functions show and hide containers through the quiz
+//Next three functions show and hide containers through the quiz
 function questOne() {
     question1.style.display = "block";
     startMain.style.display = "none";
@@ -118,6 +118,15 @@ function showForm() {
     scoreForm.style.display = "block";
     clearInterval(interval);
     renderScores();
+}
+
+function resetQuiz() {
+    i = 0;
+    timer = 60;
+    timerDisplay.textContent = timer;
+    question1.style.display = "none";
+    startMain.style.display = "Block";
+    scoreForm.style.display = "none";
 }
 
 //Logs the score/user details to the local storage only after certain conditions are met
@@ -154,8 +163,9 @@ function logScore() {
 //Function used to display scores when even going to the highscores page
 function renderScores() {
     var lastUser = JSON.parse(localStorage.getItem("user"));
-
-    if (!lastUser){
+    var userList = document.querySelector("#userList");
+    if (liMax > 0) {
+        userList.textContent = lastUser.userInitials + " your last score was: " + lastUser.userScore;
         return;
     }
     var li = document.createElement("li");
@@ -170,17 +180,22 @@ function renderScores() {
     btn.textContent = "Remove Score"
     btn.addEventListener("click", removeScore);
     listScore.appendChild(btn)
+
+    liMax++;
 }
+
 //Used to remove the score from the list and data on local storage
 function removeScore() {
     localStorage.removeItem("user");
-    var removeBtn = document.querySelector("#removeBtn")
-    var userList = document.querySelector("#userList")
-    removeBtn.parentNode.removeChild(removeBtn)
-    userList.parentNode.removeChild(userList)
+    var removeBtn = document.querySelector("#removeBtn");
+    var userList = document.querySelector("#userList");
+    removeBtn.parentNode.removeChild(removeBtn);
+    userList.parentNode.removeChild(userList);
+    liMax = 0;
 }
 
 startButton.addEventListener("click", startTimer);
 question1.addEventListener("click", responseClick);
 saveScore.addEventListener("click", logScore);
 hsBtn.addEventListener("click", showForm);
+resetBtn.addEventListener("click", resetQuiz);
