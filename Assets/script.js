@@ -57,7 +57,7 @@ function setQuestArray(i) {
     ansFour.textContent = quizSet[i].ansSet[3];
 };
 
-//This starts the timer and shows the first question set
+//This holds and starts the timer function and shows the first question set
 function startTimer() {
     questOne();
     setQuestArray(i);
@@ -120,7 +120,7 @@ function showForm() {
     renderScores();
 }
 
-function resetQuiz() {
+function resetQuiz() { // Resets the quiz back to the main display while also resetting time and counters. 
     i = 0;
     timer = 60;
     timerDisplay.textContent = timer;
@@ -129,7 +129,7 @@ function resetQuiz() {
     scoreForm.style.display = "none";
 }
 
-//Logs the score/user details to the local storage only after certain conditions are met
+//Logs the score/user details to the local storage only after certain conditions are met, otherwise alerts are shown in the browser and the function stops running.
 function logScore() {
     event.preventDefault();
     var user = {
@@ -160,7 +160,7 @@ function logScore() {
     }
 }
 
-//Function used to display scores when even going to the highscores page
+//Function used to display scores when even going to the highscores page.  Restricted to only one "li" element using the "var = liMax"
 function renderScores() {
     var lastUser = JSON.parse(localStorage.getItem("user"));
     var userList = document.querySelector("#userList");
@@ -194,6 +194,7 @@ function removeScore() {
     liMax = 0;
 }
 
+// List of Event listeners and respective call functions
 startButton.addEventListener("click", startTimer);
 question1.addEventListener("click", responseClick);
 saveScore.addEventListener("click", logScore);
