@@ -78,7 +78,7 @@ function startTimer() {
 function responseClick(event) {
     if (event.target.matches("button")) {
         event.preventDefault();
-        checkAnswer();
+        checkAnswer()
         i++;
         if (i < quizSet.length) {
             setQuestArray(i)
@@ -92,18 +92,27 @@ function responseClick(event) {
     }
 }
 
+
+
 //This function was created to check the answers and also to deduct time from the clock for an incorrect answer
 function checkAnswer() {
     if ((i === 0 && event.target === ansTwo) || (i === 1 && event.target === ansThree) || (i === 2 && event.target === ansFour) || (i === 3 && event.target === ansOne)) {
         textAnswer.textContent = "Last Answer was CORRECT!!!";
         textAnswer.style.backgroundColor = "Green";
+        setTimeout(function () {timeAnswer();}, 1500);
     }
 
     else {
         textAnswer.textContent = "Oh no last answer was WRONG!!! (-15 seconds)";
         textAnswer.style.backgroundColor = "red";
         timer = timer - 15;
+        setTimeout(function () {timeAnswer();}, 1500);
     }
+}
+
+function timeAnswer() {
+    textAnswer.textContent = "Answer again...";
+    textAnswer.style.backgroundColor = "white";
 }
 
 //Next three functions show and hide containers through the quiz
@@ -177,7 +186,7 @@ function renderScores() {
     var btn = document.createElement("button")
     btn.setAttribute("class", "btn btn-dark")
     btn.setAttribute("id", "removeBtn")
-    btn.textContent = "Remove Score"
+    btn.textContent = "Remove"
     btn.addEventListener("click", removeScore);
     listScore.appendChild(btn)
 
